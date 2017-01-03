@@ -9,16 +9,6 @@
 
 require_once '../library.php';
 
-function onItemSuccessWithViews($item)
-{
-    $result = new \stdClass();
-
-    $result->url = 'http://your-site.ru/item-' . $item->id;
-    $result->views = 15;
-
-    return $result;
-}
-
 class ImporterTest extends PHPUnit_Framework_TestCase
 {
     public function testCreateInstance()
@@ -27,8 +17,6 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
         $this->expectException(\RealtyPultImporter\Exception::class);
         new \RealtyPultImporter\Importer($options);
-
-//        $this->assertEquals($importer->run(), 0);
     }
 
     public function testCreateInstance2()
@@ -60,13 +48,63 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
     public function testCreateInstance5()
     {
+        $onItemSuccessWithViews = function ($item) {
+
+            $result = new \stdClass();
+
+            $result->url = 'http://your-site.ru/item-' . $item->id;
+            $result->views = 15;
+
+            return $result;
+        };
 
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
         $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
         $options->format = 'realtypult';
-        $options->onItem = 'onItemSuccessWithViews';
+        $options->onItem = $onItemSuccessWithViews;
         $this->expectException(\RealtyPultImporter\Exception::class);
-        new \RealtyPultImporter\Importer($options);
+        $importer = new \RealtyPultImporter\Importer($options);
+
+        $importer->run();
+    }
+
+    public function testParseWithViews()
+    {
+        $onItemSuccessWithViews = function ($item) {
+
+            $result = new \stdClass();
+
+            $result->url = 'http://your-site.ru/item-' . $item->id;
+            $result->views = 15;
+
+            // print_r($item);
+            // echo 'title: ' . $item->title;
+            // echo 'price: ' . $item->price;
+
+            return $result;
+        };
+
+        $onEnd = function ($report) {
+
+            print_r($report);
+        };
+
+        $onError = function ($error) {
+
+            print_r($error);
+        };
+
+        $options = new \stdClass();
+        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
+        $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
+        $options->format = 'realtypult';
+        $options->onItem = $onItemSuccessWithViews;
+        $options->onEnd = $onEnd;
+        $options->onError = $onError;
+
+        $importer = new \RealtyPultImporter\Importer($options);
+
+        $importer->run();
     }
 }
