@@ -11,13 +11,14 @@ class RealtyPultImporter
     function __construct($options)
     {
         if (!is_object($options)) throw new Exception('Importer::constructor: "options" parameter is required!');
+        if (!property_exists($options, 'xmlFeedUrl')) throw new Exception('Importer::constructor: "xmlFeedUrl" parameter is required!');
         if (!filter_var($options->xmlFeedUrl, FILTER_VALIDATE_URL)) throw new Exception('Importer::constructor: "xmlFeedUrl" should be a valid URL!');
-        if (!$options->reportFileLocation) throw new Exception('Importer::constructor: "reportFileLocation" parameter is required!');
-        if (!$options->format) throw new Exception('Importer::constructor: "format" parameter is required!');
+        if (!property_exists($options, 'reportFileLocation')) throw new Exception('Importer::constructor: "reportFileLocation" parameter is required!');
+        if (!property_exists($options, 'format')) throw new Exception('Importer::constructor: "format" parameter is required!');
 
-        if (!$options->onItem || !is_callable($options->onItem)) throw new Exception('Importer::constructor: "onItem" callback is required!');
-        if (!$options->onEnd || !is_callable($options->onEnd)) throw new Exception('Importer::constructor: "onEnd" callback is required!');
-        if (!$options->onError || !is_callable($options->onError)) throw new Exception('Importer::constructor: "onError" callback is required!');
+        if (!property_exists($options, 'onItem') || !is_callable($options->onItem)) throw new Exception('Importer::constructor: "onItem" callback is required!');
+        if (!property_exists($options, 'onEnd') || !is_callable($options->onEnd)) throw new Exception('Importer::constructor: "onEnd" callback is required!');
+        if (!property_exists($options, 'onError') || !is_callable($options->onError)) throw new Exception('Importer::constructor: "onError" callback is required!');
 
         if ($options->format === 'realtypult') {
 
