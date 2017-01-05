@@ -12,7 +12,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
     {
         $options = new \stdClass();
 
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
         new \RealtyPultImporter($options);
     }
 
@@ -20,7 +20,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
     {
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
         new \RealtyPultImporter($options);
     }
 
@@ -29,7 +29,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
         new \RealtyPultImporter($options);
     }
 
@@ -39,7 +39,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
         new \RealtyPultImporter($options);
     }
 
@@ -60,7 +60,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
         $options->onItem = $onItemSuccessWithViews;
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
         $importer = new \RealtyPultImporter($options);
 
         $importer->run();
