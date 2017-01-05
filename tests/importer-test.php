@@ -7,7 +7,7 @@
  * Time: 00:34
  */
 
-require_once '../realtypult-importer.php';
+require_once __DIR__ . '/../realtypult-importer.php';
 
 class ImporterTest extends PHPUnit_Framework_TestCase
 {
