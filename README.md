@@ -1,10 +1,10 @@
-# php-realtypult-partner-lib [![CircleCI](https://circleci.com/gh/bushev/php-realtypult-partner-lib.svg?style=svg)](https://circleci.com/gh/bushev/php-realtypult-partner-lib)
+# php-realtypult-partner-lib [![Build Status](https://travis-ci.org/bushev/php-realtypult-partner-lib.svg?branch=master)](https://travis-ci.org/bushev/php-realtypult-partner-lib)
 
 API библиотека для интеграции с RealtyPult
 
 ## Как установить
 
-Вы можеле скачать последнюю версию библиотеки по ссылке:
+Вы можете скачать последнюю версию библиотеки по ссылке:
 
 [https://github.com/bushev/php-realtypult-partner-lib/archive/master.zip](https://github.com/bushev/php-realtypult-partner-lib/archive/master.zip)
 
@@ -16,7 +16,7 @@ require_once 'realtypult-importer.php';
 
 Если вы используете Composer для уплавления зависимостями проекта, вы можете установить библиотеку для RealtyPult напрямую из репозитория.
 
-Одновите ваш файл composer.json (доьавьте новую зависимость):
+Обновите ваш файл composer.json (добавьте новую зависимость):
 
 ``` json
 {
@@ -26,7 +26,7 @@ require_once 'realtypult-importer.php';
 }
 ```
 
-После чего установите новую зависимость:
+После чего выполните установку:
 
 `php composer.phar install`
 
