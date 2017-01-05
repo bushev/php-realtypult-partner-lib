@@ -2,6 +2,10 @@
 
 API библиотека для интеграции с RealtyPult
 
+## Нужна версия для NodeJS?
+
+[https://github.com/bushev/nodejs-realtypult-partner-lib](https://github.com/bushev/nodejs-realtypult-partner-lib)
+
 ## Как установить
 
 Вы можете скачать последнюю версию библиотеки по ссылке:
