@@ -31,7 +31,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
     {
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
-        $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
+        $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $this->expectException(\Exception::class);
         new \RealtyPultImporter($options);
     }
@@ -40,7 +40,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
     {
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
-        $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
+        $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
         $this->expectException(\Exception::class);
         new \RealtyPultImporter($options);
@@ -60,7 +60,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
-        $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
+        $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
         $options->onItem = $onItemSuccessWithViews;
         $this->expectException(\Exception::class);
@@ -128,7 +128,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-yandex-2.xml';
-        $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
+        $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'yandex';
         $options->onItem = $onItemSuccessWithViews;
         $options->onEnd = $onEnd;
@@ -191,7 +191,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
-        $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
+        $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
         $options->onItem = $onItemSuccessWithViews;
         $options->onEnd = $onEnd;
@@ -271,7 +271,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
         $options = new \stdClass();
         $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-yandex-2.xml';
-        $options->reportFileLocation = '/Users/bushev/Downloads/rm-report.xml';
+        $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'yandex';
         $options->onItem = $onItemSuccessWithErrors;
         $options->onEnd = $onEnd;
