@@ -1,10 +1,7 @@
 <?php
-
 /**
- * Created by IntelliJ IDEA.
- * User: bushev
- * Date: 03/01/2017
- * Time: 00:34
+ *
+ * Created by Yuriy Bushev <bushevuv@gmail.com> on 05/01/2017.
  */
 
 require_once __DIR__ . '/../realtypult-importer.php';

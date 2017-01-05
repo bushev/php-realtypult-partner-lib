@@ -1,11 +1,9 @@
 <?php
-
 /**
- * Created by IntelliJ IDEA.
- * User: bushev
- * Date: 03/01/2017
- * Time: 00:39
+ *
+ * Created by Yuriy Bushev <bushevuv@gmail.com> on 05/01/2017.
  */
+
 class RealtyPultImporter
 {
     function __construct($options)
@@ -111,30 +109,30 @@ class RealtyPultImporter
                     $this->xmlReport->startElement('object');
                     $this->xmlReport->writeAttribute('id', $item->id);
 
-                    if ($result->url) {
+                    if (property_exists($result, 'url')) {
 
                         $this->report->statictics->success++;
 
                         $this->xmlReport->writeElement('url', $result->url);
 
-                        if ($result->views) {
+                        if (property_exists($result, 'views')) {
 
                             $this->xmlReport->writeElement('views', $result->views);
                         }
 
-                    } else if ($result->error) {
+                    } else if (property_exists($result, 'error')) {
 
                         $this->report->statictics->errors++;
 
                         $this->xmlReport->writeElement('error', $result->error);
 
-                    } else if ($result->similarUrl) {
+                    } else if (property_exists($result, 'similarUrl')) {
 
                         $this->report->statictics->rejected++;
 
                         $this->xmlReport->writeElement('similarUrl', $result->similarUrl);
 
-                    } else if ($result->rejectReason) {
+                    } else if (property_exists($result, 'rejectReason')) {
 
                         $this->report->statictics->rejected++;
 
