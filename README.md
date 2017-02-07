@@ -1,6 +1,6 @@
 # php-realtypult-partner-lib [![Build Status](https://travis-ci.org/bushev/php-realtypult-partner-lib.svg?branch=master)](https://travis-ci.org/bushev/php-realtypult-partner-lib)
 
-API библиотека для интеграции с RealtyPult. Подключении портала недвижимости к [партнерской программе](https://realtypult.ru/partner/signup).
+API библиотека для интеграции с RealtyPult. Подключение портала недвижимости к [партнерской программе](https://realtypult.ru/partner/signup).
 
 ## Нужна версия для NodeJS?
 
