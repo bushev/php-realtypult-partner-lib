@@ -19,7 +19,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
     public function testCreateInstance2()
     {
         $options = new \stdClass();
-        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
+        $options->xmlFeedUrl = 'https://realtypult.ru/xml/import-feed-realtypult.xml';
         $this->setExpectedException(\Exception::class);
         new \RealtyPultImporter($options);
     }
@@ -27,7 +27,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
     public function testCreateInstance3()
     {
         $options = new \stdClass();
-        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
+        $options->xmlFeedUrl = 'https://realtypult.ru/xml/import-feed-realtypult.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $this->setExpectedException(\Exception::class);
         new \RealtyPultImporter($options);
@@ -36,7 +36,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
     public function testCreateInstance4()
     {
         $options = new \stdClass();
-        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
+        $options->xmlFeedUrl = 'https://realtypult.ru/xml/import-feed-realtypult.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
         $this->setExpectedException(\Exception::class);
@@ -56,7 +56,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         };
 
         $options = new \stdClass();
-        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
+        $options->xmlFeedUrl = 'https://realtypult.ru/xml/import-feed-realtypult.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
         $options->onItem = $onItemSuccessWithViews;
@@ -124,7 +124,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         };
 
         $options = new \stdClass();
-        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-yandex-2.xml';
+        $options->xmlFeedUrl = 'https://realtypult.ru/xml/import-feed-yandex-2.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'yandex';
         $options->onItem = $onItemSuccessWithViews;
@@ -190,7 +190,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         };
 
         $options = new \stdClass();
-        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-realtypult.xml';
+        $options->xmlFeedUrl = 'https://realtypult.ru/xml/import-feed-realtypult.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'realtypult';
         $options->onItem = $onItemSuccessWithViews;
@@ -270,7 +270,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         };
 
         $options = new \stdClass();
-        $options->xmlFeedUrl = 'https://dev.realtypult.ru/xml/import-feed-yandex-2.xml';
+        $options->xmlFeedUrl = 'https://realtypult.ru/xml/import-feed-yandex-2.xml';
         $options->reportFileLocation = tempnam(sys_get_temp_dir(), 'xml-report');
         $options->format = 'yandex';
         $options->onItem = $onItemSuccessWithErrors;
