@@ -156,7 +156,7 @@ $options->onEnd = $onEnd;
 // Функция будет вызвана в случае непредвиденной критической ошибки
 $options->onError = $onError;
 
-$importer = new \RealtyPultImporter\Importer($options);
+$importer = new \RealtyPultImporter($options);
 
 // Запускаем импорт
 $importer->run();

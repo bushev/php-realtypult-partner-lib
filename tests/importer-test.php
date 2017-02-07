@@ -138,6 +138,9 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
     public function testParseWithViewsRealtyPult()
     {
+
+        // TODO: Test user image extracting
+
         $onItemSuccessWithViews = function ($item) {
 
             $this->assertInternalType('string', $item->id);

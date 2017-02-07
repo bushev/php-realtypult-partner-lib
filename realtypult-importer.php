@@ -151,8 +151,9 @@ class RealtyPultImporter
         $this->xmlReport->endElement(); // objects
         $this->xmlReport->endDocument();
 
-        rename($this->reportFileTmpLocation, $this->reportFileLocation);
-        unlink($this->downloadPath);
+        copy($this->reportFileTmpLocation, $this->reportFileLocation);
+        if (file_exists($this->downloadPath)) unlink($this->downloadPath);
+        unlink($this->reportFileTmpLocation);
 
         call_user_func_array($this->onEnd, [$this->report]);
     }
@@ -172,7 +173,7 @@ class RealtyPultImporter
                     return $assoc;
                 case \XMLReader::ELEMENT:
 
-                    if ($xml->name === 'image') {
+                    if ($xml->name === 'image') { // TODO: Fix users images
 
                         if ($this->format === 'realtypult') {
 

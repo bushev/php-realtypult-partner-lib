@@ -1,6 +1,6 @@
 # php-realtypult-partner-lib [![Build Status](https://travis-ci.org/bushev/php-realtypult-partner-lib.svg?branch=master)](https://travis-ci.org/bushev/php-realtypult-partner-lib)
 
-API библиотека для интеграции с RealtyPult
+API библиотека для интеграции с RealtyPult. Подключении портала недвижимости к [партнерской программе](https://realtypult.ru/partner/signup).
 
 ## Нужна версия для NodeJS?
 
@@ -189,7 +189,7 @@ $options->onEnd = $onEnd;
 // Функция будет вызвана в случае непредвиденной критической ошибки
 $options->onError = $onError;
 
-$importer = new \RealtyPultImporter\Importer($options);
+$importer = new \RealtyPultImporter($options);
 
 // Запускаем импорт
 $importer->run();
